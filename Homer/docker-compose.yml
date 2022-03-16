@@ -1,0 +1,11 @@
+services:
+  homer:
+    container_name: homer
+    image: b4bz/homer
+    restart: unless-stopped
+    volumes:
+      - data:/www/assets
+    ports:
+      - 8080:8080
+volumes:
+  data:

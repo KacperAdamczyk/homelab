@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  octoprint:
+    container_name: octoprint
+    image: octoprint/octoprint
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "5000:80"
+    devices:
+    # use `python -m serial.tools.miniterm` to see what the name is of the printer
+      - /dev/bus/usb:/dev/bus/usb
+    volumes:
+     - octoprint:/octoprint
+volumes:
+  octoprint:

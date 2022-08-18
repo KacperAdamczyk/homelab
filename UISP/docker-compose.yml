@@ -1,15 +1,14 @@
 version: '3'
 services:
   unms:
+    container_name: uisp
     image: nico640/docker-unms:latest
     restart: always
     ports:
-      - 6000:80
-#      - 443:443
+      - 3001:80
+      - 4431:443
       - 2055:2055/udp
     environment:
       - TZ=Europe/Warsaw
     volumes:
-      - unms:/config
-volumes:
-  unms:
+      - ./volumes/uisp:/config
